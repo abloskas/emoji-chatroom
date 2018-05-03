@@ -1,4 +1,6 @@
 const express = require("express");
+var emojis = require('emojis-unicode');
+console.log(emojis[0]);
 const app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/static"));
