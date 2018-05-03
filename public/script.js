@@ -12,4 +12,4 @@
 });
 
 // emoji scripts
-
+module.exports = require('./emojis.json');
