@@ -1,4 +1,4 @@
-
+// socket io
     $(function () {
         var socket = io();
         $('form').submit(function () {
@@ -10,3 +10,6 @@
         $('#messages').append($('<li>').text(msg));
     });
 });
+
+// emoji scripts
+
