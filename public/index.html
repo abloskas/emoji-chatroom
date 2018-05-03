@@ -20,13 +20,17 @@
     <script>
       function myFunction() {
           var txt;
+          var users = {};
+          
           var person = prompt("Please enter your name:", "Harry Potter");
           if (person == null || person == "") {
               txt = "User cancelled the prompt.";
           } else {
-              txt = "Hello " + person + "! How are you today?";
+              users += person;
+              
           }
           // document.getElementById("demo").innerHTML = txt;
+          console.log(users);
       }
       </script>
     <div class="chatroom">
