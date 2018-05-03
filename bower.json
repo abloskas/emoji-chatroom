@@ -1,0 +1,23 @@
+{
+  "name": "emoji_chatroom",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Sam Rabling and Ashley Bloskas"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "emoji"
+  ],
+  "homepage": "https://github.com/SamRabling/emoji-chatroom",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "emojis-unicode": "^1.0.1"
+  }
+}
