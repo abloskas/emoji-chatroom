@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
     <script src="script.js"></script>
-    <script src="/bower_components/emojis-unicode/dist/emojis-unicode.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <title>Emoji Chat</title>
 </head>
 <body>
@@ -17,15 +17,54 @@
         <h2>In the Emoji Chat we only speak the language of emoji (Praise be unto the Unicode &#128591; )</h2>
     </div>
     <!-- <button class="btn-1" onclick="myFunction()">Please Enter Username:</button> -->
-    <div class="chatroom">
-        <div class="message-display">
-            <ul id="messages"></ul>
+
+<!--  this is for tests -->
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="text-left">
+                <div class="chatroom">
+                    <div class="message-display" maxlength="10">
+                        <ul id="messages"></ul>
+                    </div>
+                    <form>
+                        <div class="lead emoji-picker-container">
+                            <input id="m" class="form-control textarea-control" placeholder="Put some emojis!" data-emojiable="true">
+                            <button>Send</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
-        <form>
-            <input id="m">
-           <button>Send</button>
-        </form>
     </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Begin emoji-picker JavaScript -->
+<script src="/js/config.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/jquery.emojiarea.js"></script>
+<script src="/js/emoji-picker.js"></script>
+<!-- End emoji-picker JavaScript -->
+
+<script>
+    $(function () {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+            emojiable_selector: '[data-emojiable=true]',
+            assetsPath: '/img/',
+            popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+        // It can be called as many times as necessary; previously converted input fields will not be converted again
+        window.emojiPicker.discover();
+    });
+</script>
+
 </body>
 
 </html>
