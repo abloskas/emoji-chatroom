@@ -11,10 +11,11 @@ const server = app.listen(5000, function(){
 
 const io = require('socket.io')(server);
 
-var users = {};
+var chat = [];
 
 io.on('connection', function(socket){
     console.log('a user connected');
+    io.emit('chat message', chat);
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
@@ -22,9 +23,10 @@ io.on('connection', function(socket){
         console.log('username: ' +users);
         io.emit('login', users)
     });
-    socket.on('chat message', function(msg){
-        console.log('message: ' +msg);
-        io.emit('chat message', msg)
+    socket.on('chat message', function(data){
+        console.log('message: ' +data.msg);
+        chat.push(data);
+        io.emit('chat message', chat);
     });
   });
 
