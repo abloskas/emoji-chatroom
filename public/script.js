@@ -2,7 +2,7 @@
 // socket io
 
 $(document).ready(function(){
-    var name = prompt("Please enter your name:", "Harry Potter");
+    var name = prompt("Please enter your name:", "Harry Potter...?");
     console.log(name);
     var socket = io();
         $('form').submit(function () {
@@ -11,8 +11,9 @@ $(document).ready(function(){
             msg: $('#m').val()
            
         });
-        $('#m').val('');
-    return false;
+        $("#m").val('');
+        $('.emoji-wysiwyg-editor').val('');
+        return false;
 });
         socket.on('chat message', function (data) {
             var content = "";
